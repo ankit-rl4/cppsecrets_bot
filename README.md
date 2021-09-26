@@ -15,4 +15,4 @@ Then visit the url provided by the terminal
 time_func = time.clock
 AttributeError: module 'time' has no attribute 'clock'
 ```
-in that case just go to  compat.py and replace the error line with ```time_func = time.pref_counter()``` from ```time_func = time.clock```
+in that case just go to  compat.py and replace the error line with ```time_func = time.perf_counter()``` from ```time_func = time.clock```
