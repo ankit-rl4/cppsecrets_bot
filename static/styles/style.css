@@ -1,9 +1,10 @@
 :root {
     --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    --msger-bg: #fff;
+    --msger-bg:black;
     --border: 2px solid #ddd;
-    --left-msg-bg: #ececec;
+    --left-msg-bg: black;
     --right-msg-bg: #579ffb;
+    border-radius: 3px;
   }
   
   html {
@@ -38,18 +39,20 @@
     border: var(--border);
     border-radius: 5px;
     background: var(--msger-bg);
-    box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2); */
+    color: white ;
   }
   
   .msger-header {
     /* display: flex; */
-    font-size: medium;
     justify-content: space-between;
     padding: 10px;
     text-align: center;
     border-bottom: var(--border);
     background: #eee;
-    color: #666;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
   }
   
   .msger-chat {
@@ -149,3 +152,4 @@
   .msger-chat {
     background-color: #fcfcfe;
      }
+
