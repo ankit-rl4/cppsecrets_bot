@@ -1,31 +1,49 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
-from chatterbot.trainers import ChatterBotCorpusTrainer
+class chat_bot:
+    def __init__(self):
+        self.keywords=[]
+        self.text=''
+        self.word=''
+        self.tolist()
+    def get_response(self,User_text):
+        self.text=User_text.lower().strip()
+        for x in self.keywords:
+            if self.isWordPresent(self.text,x):
+                self.word=x
+                break
+        with open('training_data/more.txt','r') as file1:
+            flag=0
+            for line in file1:
+                if line.strip()=='':
+                    pass
+                elif flag==2:
+                    flag=0
+                    return line 
+                elif flag==0:
+                    if line.lower().strip()==self.word:
+                        flag=2
+                elif flag==1:
+                    flag=0
 
-chatbot = ChatBot(
-    'CoronaBot',
-    storage_adapter='chatterbot.storage.SQLStorageAdapter',
-    logic_adapters=[
-        'chatterbot.logic.MathematicalEvaluation',
-        'chatterbot.logic.TimeLogicAdapter',
-        'chatterbot.logic.BestMatch',
-        {
-            'import_path': 'chatterbot.logic.BestMatch',
-            'default_response': 'I am sorry, but I do not understand. I am still learning.',
-            'maximum_similarity_threshold': 0.70
-        }
-    ],
-    database_uri='sqlite:///database.sqlite3'
-)
+        return "Sorry I can't understand"
 
- # Training with Personal Ques & Ans 
-training_data_simple = open('training_data/simple.txt').read().splitlines()
-training_data_personal = open('training_data/more.txt').read().splitlines()
 
-training_data = training_data_simple + training_data_personal
+    def tolist(self):
+        with open('training_data/more.txt','r') as file1:
+            flag=0
+            for line in file1:
+                if line.strip()=='':
+                    pass
+                elif flag==0:
+                    flag=1
+                    word=line.strip()
+                    self.keywords.append(word.lower())
+                elif flag==1:
+                    flag=0
+        self.keywords.sort(key =len ,reverse=True)
 
-trainer = ListTrainer(chatbot)
-trainer.train(training_data)
 
-# Training with English Corpus Data 
-trainer_corpus = ChatterBotCorpusTrainer(chatbot)
+    def isWordPresent(self,sentence, word):
+        s = sentence.find(word)
+        if s != -1:
+            return True
+        return False
