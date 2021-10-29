@@ -6,6 +6,7 @@ class chat_bot:
         self.tolist()
     def get_response(self,User_text):
         self.text=User_text.lower().strip()
+        self.word=''
         for x in self.keywords:
             if self.isWordPresent(self.text,x):
                 self.word=x
