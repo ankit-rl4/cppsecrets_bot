@@ -114,7 +114,7 @@ Here's link to our python articles : <a href="https://cppsecrets.com/home-page/i
 Python django
 Here's link to our python django articles : <a href="https://cppsecrets.com/home-page/index.php?articlecategory=4" target="_blank">Click here</a>
 django
-link: <a href="https://cppsecrets.com/home-page/index.php?articlecategory=4">Click here</a>
+Here's link to our python django articles : <a href="https://cppsecrets.com/home-page/index.php?articlecategory=4">Click here</a>
 Django
 Here's link to our python django articles : <a href="https://cppsecrets.com/home-page/index.php?articlecategory=4" target="_blank">Click here</a>
 Django Python 
